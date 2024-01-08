@@ -1,0 +1,50 @@
+@charset "UTF-8";
+
+.tittle {
+    font-size: 45px;
+    font-weight: bolder;
+}
+
+section#principal {
+    background-color: darkgrey;
+    color: white;
+    padding: 20px;
+    margin: 20px;
+    border: 5px solid black;
+    border-radius: 5px;
+}
+
+#principal .paragrafo {
+    font-size: 20px;
+    line-height: 20px;
+    color: lightgray;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#flexbox .container {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+#flexbox .container .box {
+    width: 200px;
+    height: 200px;
+    background-color: lightgreen;
+}
+
+section#grid {
+    margin-top: 50px;
+}
+
+#grid .container-grid {
+    display: grid;
+    grid-template-columns: 200px 200px 200px;
+    gap: 20px;
+}
+
+#grid .container-grid .caixa {
+    width: 200px;
+    height: 200px;
+    background-color: blueviolet;
+}
