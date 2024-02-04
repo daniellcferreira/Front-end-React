@@ -3,6 +3,7 @@ import React from "react";
 import "./styles/App.css";
 import Navbar from "./components/Navbar/Navbar";
 import { Article } from "./components/Article/Article";
+import { Counter } from "./components/Counter/Counter";
 //import { Counter } from "./components/Counter/Counter";
 
 
@@ -14,8 +15,8 @@ class App extends React.Component {
       <>
         <Navbar />
 
-        {/*<Counter />*/}
-        <section id="articles">
+        <Counter />
+        {/*<section id="articles">
           <Article title="Designing Dashboards" provider="Nasa" description="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vitae dolore id nam a debitis quas inventore animi quaerat sed enim laboriosam quis odio beatae harum, earum, ex explicabo ipsa eligendi"/>
 
           <Article title="Vibrant Portraits of 2020" provider="SpaceNews" description="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vitae dolore id nam a debitis quas inventore animi quaerat sed enim laboriosam quis odio beatae harum, earum, ex explicabo ipsa eligendi" />
@@ -23,7 +24,8 @@ class App extends React.Component {
           <Article title="36 Days of Malayalam type" provider="Spaceflght Now" description="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vitae dolore id nam a debitis quas inventore animi quaerat sed enim laboriosam quis odio beatae harum, earum, ex explicabo ipsa eligendi" />
 
           <Article title="Designing Dashboards" provider="Nasa" description="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vitae dolore id nam a debitis quas inventore animi quaerat sed enim laboriosam quis odio beatae harum, earum, ex explicabo ipsa eligendi"/>
-        </section>
+        
+        </section>*/}
       </>
     );
   }
