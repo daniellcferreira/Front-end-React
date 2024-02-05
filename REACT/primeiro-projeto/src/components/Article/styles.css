@@ -16,3 +16,8 @@
     color: #8695A4;
     margin-bottom: 1rem;
 }
+
+#article img {
+    max-width: 350px;
+    border-radius: 5px;
+}

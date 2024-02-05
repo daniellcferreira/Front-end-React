@@ -1,34 +1,55 @@
-import React from "react";
-
+import React, { useEffect, useState } from "react";
 import "./styles/App.css";
 import Navbar from "./components/Navbar/Navbar";
 import { Article } from "./components/Article/Article";
-import { Counter } from "./components/Counter/Counter";
+import { Audio } from 'react-loader-spinner';
+import axios from "axios";
+
 //import { Counter } from "./components/Counter/Counter";
 
 
 // COMPONENTE em classe é uma classe que herda a classe Component do React e retorna HTML dentro do metodos render
 
-class App extends React.Component {
-  render() {
-    return (
-      <>
-        <Navbar />
+function App() {
+const [news, setNews] = useState([]);
 
-        <Counter />
-        {/*<section id="articles">
-          <Article title="Designing Dashboards" provider="Nasa" description="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vitae dolore id nam a debitis quas inventore animi quaerat sed enim laboriosam quis odio beatae harum, earum, ex explicabo ipsa eligendi"/>
+useEffect(() => {
+  async function loadNews() {
+    const responde = await axios.get('https://api.spaceflightnewsapi.net/v3/articles');
+    const newsData = responde.data; 
 
-          <Article title="Vibrant Portraits of 2020" provider="SpaceNews" description="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vitae dolore id nam a debitis quas inventore animi quaerat sed enim laboriosam quis odio beatae harum, earum, ex explicabo ipsa eligendi" />
-
-          <Article title="36 Days of Malayalam type" provider="Spaceflght Now" description="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vitae dolore id nam a debitis quas inventore animi quaerat sed enim laboriosam quis odio beatae harum, earum, ex explicabo ipsa eligendi" />
-
-          <Article title="Designing Dashboards" provider="Nasa" description="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vitae dolore id nam a debitis quas inventore animi quaerat sed enim laboriosam quis odio beatae harum, earum, ex explicabo ipsa eligendi"/>
-        
-        </section>*/}
-      </>
-    );
+    setNews(newsData);
   }
+
+  loadNews();
+}, []);
+
+  return (
+    <>
+      <Navbar />
+
+      {/*<Counter />*/}
+      <section id="articles">
+        {news.length === 0 ? (
+          <div style={{height: '400px', width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+            <Audio 
+              height="80"
+              width="80"
+              radius="9"
+              color="white"
+              ariaLabel="loading"
+              wrapperStyle
+              wrapperClass
+            />
+          </div>
+        ) : news.map((article) => {
+          return(
+            <Article key={article.id} title={article.title} provider={article.newsSite} description={article.summary} thumbnail={article.imageUrl}/>
+          )
+        })}
+      </section>
+    </>
+  );
 }
 
 export default App;
