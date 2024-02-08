@@ -1,15 +1,12 @@
-import { FormEvent, useEffect, useState } from "react";
+import { FormEvent, useContext, useState } from "react";
 import styles from "./styles.module.scss";
+import { TasksContext } from "../../context/TaskContext";
 
-interface Taks {
-    title: string;
-    done: boolean;
-    id: number;
-}
 
 export const Tasks: React.FC = () => {
     const[taskTitle, setTaskTitle] = useState("");
-    const[tasks, setTasks] = useState([] as Taks[]);
+    
+    const {tasks, setTasks} = useContext(TasksContext);
 
     //Função disparada quando o usuario adiciona um nova tarefa
     function handleSubmitAddTask(event: FormEvent) {
@@ -30,13 +27,19 @@ export const Tasks: React.FC = () => {
         localStorage.setItem('tasks', JSON.stringify(newTasks));
     }
 
-    useEffect(() => {
-        const tasksOnLocalStorage = localStorage.getItem('tasks');
+    function handleToggleTaskStatus(taskId: number) {
+        const newTasks = tasks.map((task) => {
+            if (taskId === task.id) {
+                return {
+                    ...task,
+                    done: !task.done
+                }
+            }
+            return task;
+        })
+        setTasks(newTasks);
+    }
 
-        if(tasksOnLocalStorage) {
-            setTasks(JSON.parse(tasksOnLocalStorage));
-        }
-    }, [])
 
     return (
       <section className={styles.container}>
@@ -53,8 +56,9 @@ export const Tasks: React.FC = () => {
             {tasks.map(task => {
                 return(
                     <li key={task.id}>
-                        <input type="checkbox" id={`task-${task.id}`} />
-                        <label htmlFor={`task-${task.id}`}>{task.title}</label>
+                        <input type="checkbox" id={`task-${task.id}`} 
+                        onChange={() => handleToggleTaskStatus(task.id)} />
+                        <label className={task.done ? styles.done : ''} htmlFor={`task-${task.id}`}>{task.title}</label>
                     </li>
                 )
             })}
