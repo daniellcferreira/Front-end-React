@@ -20,3 +20,20 @@ export const Container = styled.aside<ContainerProps>`
 `;
 
 export const Title = styled.h1``;
+
+export const CartProductsList = styled.ul`
+  padding: 2rem 0;
+  list-style: none;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+`;
+
+export const CartProductItem =styled.li`
+
+`;
+
+export const CartTotal = styled.strong`
+
+`;
