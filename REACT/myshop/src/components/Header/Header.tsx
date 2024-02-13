@@ -4,6 +4,7 @@ import {FiLogIn, FiLogOut, FiShoppingCart} from 'react-icons/fi';
 import { Cart } from "../Cart/Cart";
 import {useDispatch, useSelector} from "react-redux";
 import { RootReducer } from "../../redux/root-reducer";
+import { login, logout } from "../../redux/User/user-slice";
 
 
 export const Header: React.FC = () => {
@@ -15,18 +16,15 @@ export const Header: React.FC = () => {
     const isLogged = user !== null;
 
     function handleUserAuth() {
+
         if (user === null) {
-            dispatch({
-                type: 'user/login',
-                payload: {
-                    name: 'Daniel Ferreira',
-                    email: 'teste@email.com'
-                },
-            });
+            dispatch(login({
+                name: 'Daniel Ferreira',
+                email: 'teste@email.com'
+                }
+            ));
         } else {
-            dispatch({
-                type: 'user/logout',
-            })
+            dispatch(logout({}));
         }
     }
 
