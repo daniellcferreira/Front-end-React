@@ -9,6 +9,9 @@ import { login, logout } from "../../redux/User/user-slice";
 
 export const Header: React.FC = () => {
     const {user} = useSelector((rootReducer: RootReducer) => rootReducer.userReducer);
+
+    const {cart} = useSelector((rootReducer: RootReducer) => rootReducer.cartReducer);
+
     const dispatch = useDispatch()
 
     const [showCart, setShowCart] = useState(false);
@@ -46,7 +49,7 @@ export const Header: React.FC = () => {
                 </S.ButtonsWrapper>
             </S.Wrapper>
 
-            <Cart showCart={showCart} />
+            <Cart showCart={showCart} cart={cart}/>
         </S.StyledHeader>
     )
 }
