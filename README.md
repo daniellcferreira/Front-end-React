@@ -1,4 +1,15 @@
-# Curso de Front-End com React 
+# Front-End com React 
+![HTML](https://img.shields.io/badge/HTML-Frontend-FF5733?style=flat-square&logo=html5&logoColor=white)
+![CSS](https://img.shields.io/badge/CSS-Frontend-33A1FD?style=flat-square&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-Frontend-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
+![TypeScript](https://img.shields.io/badge/TypeScript-Frontend-007ACC?style=flat-square&logo=typescript&logoColor=white)
+![React](https://img.shields.io/badge/React-Frontend-61DAFB?style=flat-square&logo=react&logoColor=black)
+![API OpenWeather](https://img.shields.io/badge/API_OpenWeather-Weather-00A9E0?style=flat-square&logo=weather&logoColor=white)
+![Node.js](https://img.shields.io/badge/Node.js-Server-339933?style=flat-square&logo=node.js&logoColor=white)
+![NPM](https://img.shields.io/badge/NPM-Package_Manager-CB3837?style=flat-square&logo=npm&logoColor=white)
+![Webpack](https://img.shields.io/badge/Webpack-Bundler-8DD6F9?style=flat-square&logo=webpack&logoColor=white)
+![Babel](https://img.shields.io/badge/Babel-Transpiler-F9DC3E?style=flat-square&logo=babel&logoColor=white)
+
 
 ## Descrição
 O curso de Front-End com React da Ada Tech é voltado para quem deseja aprender ou se aprofundar no desenvolvimento web moderno. Ele cobre desde os fundamentos de desenvolvimento web até o uso avançado do framework React, capacitando os alunos a criar aplicações robustas e eficientes.
